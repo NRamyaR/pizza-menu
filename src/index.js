@@ -56,7 +56,6 @@ function App() {
   );
 }
 function Header() {
-  //   const style = { color: "red", textTransform: "uppercase", fontSize: "42px" };
   return (
     <header className="header">
       <h1>Fast Menu Pizza Co.</h1>;
@@ -66,19 +65,11 @@ function Header() {
 
 function Menu() {
   const pizzas = pizzaData;
-  //const pizzas = [];
   const numPizza = pizzas.length;
   return (
     <main className="menu">
       <h2>Our Menu</h2>
 
-      {/* {numPizza > 0 && (
-        <ul className="pizzas">
-          {pizzaData.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))}
-        </ul>
-      )} */}
       {numPizza > 0 ? (
         <>
           <p>
@@ -94,32 +85,13 @@ function Menu() {
       ) : (
         <p>still working on our menu. plz come back later</p>
       )}
-
-      {/* <Pizza
-        name="Pizza Spianci"
-        ingredients="Tomato, onion,chilli, potato, spinaci"
-        photoName="pizzas/spinaci.jpg"
-        price={10}
-      />
-      <Pizza
-        name="Pizza Funghi"
-        ingredients="Tomato, onion,chilli, potato, spinaci"
-        photoName="pizzas/funghi.jpg"
-        price={12}
-      />
-      <Pizza
-        name="Pizza margherita"
-        ingredients="Tomato, onion,chilli, potato, spinaci"
-        photoName="pizzas/margherita.jpg"
-        price={14}
-      /> */}
     </main>
   );
 }
 
 function Pizza({ pizzaObj }) {
   console.log(pizzaObj);
-  //   if(pizzaObj.pizzaObj.soldOut) return null
+
   return (
     <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />
@@ -137,8 +109,6 @@ function Footer() {
   const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
   console.log(isOpen);
-
-  //   if (!isOpen) return <p>CLOSED</p>;
 
   return (
     <footer>
@@ -164,13 +134,9 @@ function Order(pizzaObj) {
   );
 }
 
-//React 18v
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
-
-//React befor 18
-//React.render(<App/>)
